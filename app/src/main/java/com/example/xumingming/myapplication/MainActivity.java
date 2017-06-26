@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.tozzais.mmlibrary.utils.ToastUtil;
+import com.tozzais.mmlibrary.utils.address.CityUtils;
+import com.tozzais.mmlibrary.utils.address.OnAddressSelectListener;
+import com.tozzais.mmlibrary.utils.address.bean.CityBean;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,11 +15,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        CityUtils.init(this);
+
     }
 
 
     public void onclick(View view){
-        ToastUtil.getInstance().show(this,"这是一个提示！");
+
+
+        CityUtils.getInstance().showAddressDialog(this, new OnAddressSelectListener() {
+            @Override
+            public void onFinish(CityBean province, CityBean city, CityBean county) {
+
+            }
+        });
 
     }
 }
