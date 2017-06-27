@@ -1,4 +1,4 @@
-package com.example.xumingming.myapplication.widget;
+package com.tozzais.mmlibrary.widget.crop;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -18,7 +19,7 @@ public class ClipImageBorderView extends View
 	/**
 	 * 水平方向与View的边距
 	 */
-	private int mHorizontalPadding;
+	private int mHorizontalPadding = 20;
 	/**
 	 * 垂直方向与View的边距
 	 */
@@ -67,6 +68,9 @@ public class ClipImageBorderView extends View
 		mWidth = getWidth() - 2 * mHorizontalPadding;
 		// 计算距离屏幕垂直边界 的边距
 		mVerticalPadding = (getHeight() - mWidth) / 2;
+
+		Log.e("-----",getWidth()+":"+mWidth+":"+mHorizontalPadding+":"+mVerticalPadding+":"+getHeight());
+
 		mPaint.setColor(Color.parseColor("#aa000000"));
 		mPaint.setStyle(Style.FILL);
 		// 绘制左边1

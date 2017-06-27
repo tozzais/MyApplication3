@@ -1,4 +1,4 @@
-package com.example.xumingming.myapplication.widget;
+package com.tozzais.mmlibrary.widget.crop;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.RelativeLayout;
 
-import com.example.xumingming.myapplication.R;
 
 /**
  * http://blog.csdn.net/lmj623565791/article/details/39761281
@@ -42,8 +41,8 @@ public class ClipImageLayout extends RelativeLayout
 		/**
 		 * 这里测试，直接写死了图片，真正使用过程中，可以提取为自定义属性
 		 */
-		mZoomImageView.setImageDrawable(getResources().getDrawable(
-				R.mipmap.a));
+//		mZoomImageView.setImageDrawable(getResources().getDrawable(
+//				R.mipmap.a));
 
 		this.addView(mZoomImageView, lp);
 		this.addView(mClipImageView, lp);

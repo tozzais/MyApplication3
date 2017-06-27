@@ -5,13 +5,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 
-import com.example.xumingming.myapplication.widget.ClipImageLayout;
 import com.tozzais.mmlibrary.utils.BitmapUtil;
-import com.tozzais.mmlibrary.utils.ToastUtil;
+import com.tozzais.mmlibrary.widget.crop.ClipImageLayout;
 
 /**
  * http://blog.csdn.net/lmj623565791/article/details/39761281
@@ -31,35 +29,32 @@ public class CropActivity extends Activity {
 		String path = getIntent().getStringExtra("path");
 
 		//这种方法压缩很慢
-//		BitmapUtils.getInstance().compactPic(this, path, new BitmapUtils.CallBack() {
-//			@Override
-//			public void resultPath(String path) {
-//				Log.e("---jiancjie----",path+"");
-//				mClipImageLayout.getmZoomImageView().setImageBitmap(BitmapFactory.decodeFile(path));
-//			}
-//		});
+		BitmapUtils.getInstance().compactPic(this, path, new BitmapUtils.CallBack() {
+			@Override
+			public void resultPath(String path) {
+				Log.e("---jiancjie----",path+"");
+				mClipImageLayout.getmZoomImageView().setImageBitmap(BitmapFactory.decodeFile(path));
+			}
+		});
 
-		Bitmap bm = BitmapFactory.decodeFile(path);
-
-		if (bm == null) {
-			ToastUtil.getInstance().show(this, "图片为null");
-			return;
-		}
-
-		Bitmap bmp = null;
-		DisplayMetrics dm = new DisplayMetrics();
-		getWindowManager().getDefaultDisplay().getMetrics(dm);
-		int screenWidth = dm.widthPixels;
-		if (bm.getWidth() <= screenWidth) {
-			//图片很小就不压缩
-			bmp = bm;
-		} else {
-			//图片很大就压缩 小米2手机上测试 压缩了18倍
-			bmp = Bitmap.createScaledBitmap(bm, screenWidth, bm.getHeight() * screenWidth / bm.getWidth(), false);
-
-//			Log.e("---之后的大小----", bmp.getByteCount() + "");
-		}
-		mClipImageLayout.getmZoomImageView().setImageBitmap(bmp);
+//		Bitmap bm = BitmapFactory.decodeFile(path);
+//		if (bm == null) {
+//			ToastUtil.getInstance().show(this, "图片为null");
+//			return;
+//		}
+//		Bitmap bmp = null;
+//		DisplayMetrics dm = new DisplayMetrics();
+//		getWindowManager().getDefaultDisplay().getMetrics(dm);
+//		int screenWidth = dm.widthPixels;
+//		if (bm.getWidth() <= screenWidth) {
+//			//图片很小就不压缩
+//			bmp = bm;
+//		} else {
+//			//图片很大就压缩 小米2手机上测试 压缩了18倍
+//			bmp = Bitmap.createScaledBitmap(bm, screenWidth, bm.getHeight() * screenWidth / bm.getWidth(), false);
+////			Log.e("---之后的大小----", bmp.getByteCount() + "");
+//		}
+//		mClipImageLayout.getmZoomImageView().setImageBitmap(bmp);
 
 
 	}
