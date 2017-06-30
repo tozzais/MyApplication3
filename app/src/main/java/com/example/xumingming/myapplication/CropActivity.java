@@ -24,7 +24,7 @@ public class CropActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crop);
 
-		mClipImageLayout = (ClipImageLayout) findViewById(R.id.id_clipImageLayout);
+//		mClipImageLayout = (ClipImageLayout) findViewById(R.id.id_clipImageLayout);
 
 		String path = getIntent().getStringExtra("path");
 

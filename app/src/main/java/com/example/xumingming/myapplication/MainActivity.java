@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.tozzais.mmlibrary.utils.ToastUtil;
+
 import java.io.File;
 
 /**
@@ -21,6 +23,9 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
 
 	private ImageView image;
+	private CountDownView countDownView;
+
+
 
 
 
@@ -31,6 +36,15 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 
 		image = (ImageView) findViewById(R.id.image);
+		countDownView = (CountDownView) findViewById(R.id.countDownView);
+		countDownView.startTime(1*60*60+10);
+		countDownView.setListener(new CountDownView.OnFinishListener() {
+
+			@Override
+			public void onFinish(boolean isFinish) {
+				ToastUtil.getInstance().show(MainActivity.this,"结束了");
+			}
+		});
 
 	}
 
