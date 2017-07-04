@@ -8,7 +8,10 @@ public class KotlinClass {
 
     //测试回滚
 
+<<<<<<< HEAD
     //测试
 
+=======
+>>>>>>> origin/master
 //    fun
 }
