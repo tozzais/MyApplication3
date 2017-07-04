@@ -33,8 +33,19 @@
     <com.example.xumingming.myapplication.CountDownView
         android:id="@+id/countDownView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
 
     </com.example.xumingming.myapplication.CountDownView>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_margin="50dp"
+        android:lineSpacingExtra="5dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
 </RelativeLayout>
